@@ -1,140 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Dashboard Navigator</title>
-<style>
-
+  <meta charset="UTF-8">
+  <title>Electric Power Dashboard</title>
+  <style>
     body {
-
-      font-family: Arial, sans-serif;
-
-      padding: 20px;
-
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1581092795360-d9727b1d3c67?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      overflow-x: hidden;
     }
- 
-    .menu {
 
-      width: 300px;
-
+    .overlay {
+      background: rgba(0, 0, 0, 0.7);
+      min-height: 100vh;
+      padding: 60px 40px;
     }
- 
-    .dropdown {
 
+    h1 {
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 50px;
+      color: #00ffff;
+    }
+
+    .usecase-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .usecase-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid #00ffff88;
+      border-radius: 15px;
+      padding: 25px;
       position: relative;
-
-      display: block;
-
-      margin-bottom: 10px;
-
-    }
- 
-    .dropdown-button {
-
-      background-color: #f9c02d;
-
-      padding: 10px;
-
-      border: 1px solid #ccc;
-
+      transition: transform 0.3s, background 0.3s;
       cursor: pointer;
+    }
 
+    .usecase-card:hover {
+      background: rgba(255, 255, 255, 0.1);
+      transform: translateY(-5px);
+    }
+
+    .usecase-title {
+      font-size: 1.2em;
       font-weight: bold;
-
+      margin-bottom: 15px;
+      color: #00ffff;
     }
- 
-    .dropdown-content {
 
+    .kpis {
       display: none;
-
-      position: absolute;
-
-      top: 0;
-
-      left: 100%; /* Right side */
-
-      margin-left: 1px;
-
-      background-color: #fff;
-
-      border: 1px solid #ccc;
-
-      min-width: 280px;
-
-      z-index: 1000;
-
+      margin-top: 10px;
     }
- 
-    .dropdown-content a {
 
-      display: block;
+    .kpi {
+      padding: 8px 12px;
+      background: #ffffff11;
+      margin: 5px 0;
+      border-left: 4px solid #00ffff;
+      border-radius: 4px;
+      transition: background 0.2s;
+    }
 
-      padding: 10px;
+    .kpi:hover {
+      background: #00ffff33;
+    }
 
+    .kpi a {
       text-decoration: none;
-
-      color: #333;
-
-    }
- 
-    .dropdown-content a:hover {
-
-      background-color: #f0f0f0;
-
-    }
- 
-    .dropdown:hover .dropdown-content {
-
+      color: #fff;
       display: block;
-
     }
-</style>
+
+    .usecase-card:hover .kpis {
+      display: block;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2em;
+      }
+    }
+  </style>
 </head>
 <body>
- 
-  <h2>Use Case Based Dashboard Navigation</h2>
-<div class="menu">
- 
-    <div class="dropdown">
-<div class="dropdown-button">Demand and Supply Forecasting</div>
-<div class="dropdown-content">
-<a href="https://analytics.apdcl.org/links/resources/report?uri=%2Freports%2Freports%2F8735acce-31da-4ae8-95ac-b8a5601ec981" target="_blank">
+  <div class="overlay">
+    <h1>Electric Power Sector KPI Dashboard</h1>
+    <div class="usecase-container">
 
-          Demand Forecasting
-</a>
-<a href="#">Supply Forecasting</a>
-</div>
-</div>
- 
-    <div class="dropdown">
-<div class="dropdown-button">Scenario Analysis</div>
-<div class="dropdown-content">
-<a href="#">Demand Scenario Simulation</a>
-<a href="#">Supply Scenario Simulation</a>
-</div>
-</div>
- 
-    <div class="dropdown">
-<div class="dropdown-button">Loss Reduction Analytics</div>
-<div class="dropdown-content">
-<a href="#">Line Losses - 33kV</a>
-<a href="#">Transformation Loss - DSS</a>
-<a href="#">Loss from Feeder to DT Meters</a>
-</div>
-</div>
- 
-    <div class="dropdown">
-<div class="dropdown-button">Outage Analytics</div>
-<div class="dropdown-content">
-<a href="#">Parameter Frozen Scenarios</a>
-<a href="#">Consumption Estimation and Predictive Billing</a>
-<a href="#">Detection and Prevention of Meter Tampering</a>
-</div>
-</div>
- 
+      <!-- Use Case 1 -->
+      <div class="usecase-card">
+        <div class="usecase-title">Real-Time Monitoring</div>
+        <div class="kpis">
+          <div class="kpi"><a href="#">Load Generation Balance</a></div>
+          <div class="kpi"><a href="#">Grid Frequency</a></div>
+          <div class="kpi"><a href="#">Voltage Levels</a></div>
+        </div>
+      </div>
+
+      <!-- Use Case 2 -->
+      <div class="usecase-card">
+        <div class="usecase-title">Demand Forecasting</div>
+        <div class="kpis">
+          <div class="kpi">
+            <a href="https://analytics.apdcl.org/links/resources/report?uri=%2Freports%2Freports%2F8735acce-31da-4ae8-95ac-b8a5601ec981" target="_blank">
+              Short-term Demand
+            </a>
+          </div>
+          <div class="kpi"><a href="#">Long-term Trends</a></div>
+          <div class="kpi"><a href="#">Seasonal Adjustments</a></div>
+        </div>
+      </div>
+
+      <!-- Use Case 3 -->
+      <div class="usecase-card">
+        <div class="usecase-title">Outage Analytics</div>
+        <div class="kpis">
+          <div class="kpi"><a href="#">Outage Count</a></div>
+          <div class="kpi"><a href="#">Duration</a></div>
+          <div class="kpi"><a href="#">Customer Impact</a></div>
+        </div>
+      </div>
+
+    </div>
   </div>
- 
 </body>
 </html>
-
- 
